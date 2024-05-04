@@ -1,14 +1,38 @@
 const screen = document.querySelector(".display");
 let a = "";
+let b = "";
+let symbol1,symbol2;
+
+let calc = 0;
 
 let num = document.createElement("h1");
 num.textContent = a ? a: 0;
 screen.appendChild(num);
 
+function calculator(symbol1,b){
+    if(symbol1 == '+'){
+        calc += parseInt(b);
+    }else if(symbol1 == '-'){
+        calc -= parseInt(b);
+    }else if(symbol1 == '/'){
+        calc /= parseInt(b);
+    }else if(symbol1 == '*'){
+        calc *= parseInt(b);
+    }else if(symbol1 == 'mod'){
+        calc %= parseInt(b);
+    }else{
+        calc = parseInt(b);
+    }
+    a = 0;
+    console.log(calc);
+    
+}
+
 function refresh(a){
     let num = document.createElement("h1");
     num.textContent = a ? a: 0;
     screen.appendChild(num);
+    
 }
 
 const clear = document.querySelector(".clear");
@@ -18,6 +42,7 @@ clear.addEventListener('click',()=>{
     screen.removeChild(screen.firstChild);
     console.log("Works");
     refresh(a);
+    calc = 0;
 });
 
 const one = document.querySelector("#one");
@@ -108,30 +133,70 @@ const multiply = document.querySelector(".multiply");
 const divide = document.querySelector(".divide");
 
 plus.addEventListener('click',() => {
-    a += '+';
+    symbol1 = symbol2;
+    symbol2 = '+';
+    b = a;
+    a = '+';
     screen.removeChild(screen.firstChild);
     console.log("Works");
+    calculator(symbol1,b);
     refresh(a);
 });
 
 minus.addEventListener('click',() => {
-    a += '-';
+    b = a;
+    a = '-';
+    symbol1 = symbol2;
+    symbol2 = '-';
     screen.removeChild(screen.firstChild);
     console.log("Works");
+    calculator(symbol1,b);
     refresh(a);
 });
 
 divide.addEventListener('click',() => {
-    a += '/';
+    b = a;
+    a = '/';
+    symbol1 = symbol2;
+    symbol2 = '/';
     screen.removeChild(screen.firstChild);
     console.log("Works");
+    calculator(symbol1,b);
     refresh(a);
 });
 
 multiply.addEventListener('click',() => {
-    a += '*';
+    b = a;
+    a = '*';
+    symbol1 = symbol2;
+    symbol2 = '*';
     screen.removeChild(screen.firstChild);
     console.log("Works");
+    calculator(symbol1,b);
+    refresh(a);
+});
+
+const equal = document.querySelector(".equals");
+
+equal.addEventListener('click',() => {
+    b = a;
+    symbol1 = symbol2;
+    screen.removeChild(screen.firstChild);
+    console.log("Works");
+    calculator(symbol1,b);
+    refresh(calc);
+});
+
+const mod = document.querySelector(".mod");
+
+mod.addEventListener('click',() => {
+    b = a;
+    a = '*';
+    symbol1 = symbol2;
+    symbol2 = 'mod';
+    screen.removeChild(screen.firstChild);
+    console.log("Works");
+    calculator(symbol1,b);
     refresh(a);
 });
 
