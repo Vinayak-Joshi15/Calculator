@@ -50,7 +50,7 @@ html {
     justify-content: center;
 }
 
-.numbers,.sign,.mode , .equals{
+.numbers,.sign,.mode , .equals , .decimal{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +59,7 @@ html {
     border: 1px solid black;
 }
 
-.numbers:hover,.sign:hover,.mode:hover , .equals:hover{
+.numbers:hover,.sign:hover,.mode:hover , .equals:hover , .decimal:hover{
     cursor: pointer;
     opacity: 70%;
 }
@@ -68,7 +68,7 @@ html {
     background-color: #39FF14;
 }
 
-.sign , .equals{
+.sign , .equals , .decimal{
     background-color: orange;
 }
 
