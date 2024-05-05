@@ -7,6 +7,10 @@ div{
     font-weight: 700;
 }
 
+html {
+    background-color: #E5E7EB;
+}
+
 .cbody{
     display: flex;
     flex-direction: column;
@@ -46,7 +50,7 @@ div{
     justify-content: center;
 }
 
-.numbers,.sign,.mode{
+.numbers,.sign,.mode , .equals{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,7 +59,7 @@ div{
     border: 1px solid black;
 }
 
-.numbers:hover,.sign:hover,.mode:hover{
+.numbers:hover,.sign:hover,.mode:hover , .equals:hover{
     cursor: pointer;
     opacity: 70%;
 }
@@ -64,7 +68,7 @@ div{
     background-color: #39FF14;
 }
 
-.sign{
+.sign , .equals{
     background-color: orange;
 }
 
@@ -83,6 +87,7 @@ div{
     border: 1px solid black;
     background-color: rgb(245,245,245);
     margin: 16px;
+    flex-wrap: wrap;
 
 }
 
@@ -91,3 +96,4 @@ div{
     margin: 8px;
     background-color: rgb(245,245,245);
 }
+
